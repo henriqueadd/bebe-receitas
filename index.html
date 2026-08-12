@@ -38,7 +38,25 @@ img.lzl, img.lzl-ing, img.lzl-ed, .lzl {
 
 <!-- Back Redirect Script -->
 <script type="text/javascript">
-(function(b,a,c,k,e,d){b.back_redirect=a;e=b.history;d=b.location;if(e.pushState){e.pushState(null,null,d.href);b.onpopstate=function(){d.href=a}}})(window, 'https://ultimachanche-desconto-especial.netlify.app/');
+(function(w){
+  var url='https://ultimachanche-desconto-especial.netlify.app/';
+  var done=false;
+  function go(){ if(done) return; done=true; w.location.replace(url); }
+
+  try{
+    if(w.history&&w.history.pushState){
+      w.history.pushState({od:'guard'},'',w.location.href);
+      w.addEventListener('popstate',function(e){ if(!e.state||e.state.od) go(); });
+    }
+  }catch(e){}
+
+  w.addEventListener('pageshow',function(e){ if(e.persisted) go(); });
+
+  try{
+    var n=w.performance&&w.performance.getEntriesByType&&w.performance.getEntriesByType('navigation');
+    if(n&&n.length&&n[0].type==='back_forward') go();
+  }catch(e){}
+})(window);
 </script>
 
 <!-- User Pixels -->
