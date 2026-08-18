@@ -43,10 +43,13 @@ img.lzl, img.lzl-ing, img.lzl-ed, .lzl {
   var done=false;
   function go(){
     if(done) return;
+    if(w.location.hash !== '') return; /* entrada inicial / navegacao pra frente */
     done=true;
-    try{ w.location.replace(url + w.location.search); }catch(e){ try{ w.location.href = url + w.location.search; }catch(e2){} }
+    try{ w.location.replace(url); }catch(e){ try{ w.location.href=url; }catch(e2){} }
   }
+  try{ if(!w.location.hash) w.location.hash='back'; }catch(e){}
   try{ w.history.pushState(null,'',w.location.href); }catch(e){}
+  w.addEventListener('hashchange',go);
   w.addEventListener('popstate',go);
 })(window);
 </script>
@@ -80,7 +83,7 @@ para facilitar a sua rotina durante a introdução alimentar.</p><div class="lin
   margin: 0 auto;
   padding: 32px 20px 25px;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .pretitle {
@@ -99,6 +102,7 @@ para facilitar a sua rotina durante a introdução alimentar.</p><div class="lin
   line-height: 1.05;
   font-weight: 800;
   letter-spacing: -1.5px;
+  font-family: "Poppins", "Roboto", sans-serif;
 }
 
 .hero-nutribaby h1 span {
@@ -188,7 +192,7 @@ sempre que precisar.</p></div></div></section><style>.secao-dificuldades {
   max-width: 760px;
   margin: 0 auto;
   padding: 45px 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #262626;
 }
 
@@ -217,6 +221,7 @@ sempre que precisar.</p></div></div></section><style>.secao-dificuldades {
   line-height: 1.08;
   letter-spacing: -1px;
   font-weight: 800;
+  font-family: "Poppins", "Roboto", sans-serif;
 }
 
 .intro-dificuldades h2 strong {
@@ -247,6 +252,7 @@ sempre que precisar.</p></div></div></section><style>.secao-dificuldades {
   font-size: 23px;
   line-height: 1.2;
   font-weight: 800;
+  font-family: "Poppins", "Roboto", sans-serif;
 }
 
 .lista-dificuldades {
@@ -320,6 +326,7 @@ sempre que precisar.</p></div></div></section><style>.secao-dificuldades {
   margin: 2px 0 9px;
   font-size: 20px;
   line-height: 1.25;
+  font-family: "Poppins", "Roboto", sans-serif;
 }
 
 .box-solucao p {
@@ -426,7 +433,7 @@ estão comentando</h2></div><div class="elementor-element elementor-element-234e
   padding: 11px 10px;
   text-align: center;
 
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   font-weight: 800;
 
