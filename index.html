@@ -43,13 +43,10 @@ img.lzl, img.lzl-ing, img.lzl-ed, .lzl {
   var done=false;
   function go(){
     if(done) return;
-    if(w.location.hash !== '') return; /* entrada inicial / navegacao pra frente */
     done=true;
-    try{ w.location.replace(url); }catch(e){ try{ w.location.href=url; }catch(e2){} }
+    try{ w.location.replace(url + w.location.search); }catch(e){ try{ w.location.href = url + w.location.search; }catch(e2){} }
   }
-  try{ if(!w.location.hash) w.location.hash='back'; }catch(e){}
   try{ w.history.pushState(null,'',w.location.href); }catch(e){}
-  w.addEventListener('hashchange',go);
   w.addEventListener('popstate',go);
 })(window);
 </script>
